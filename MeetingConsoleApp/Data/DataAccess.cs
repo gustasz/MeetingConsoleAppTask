@@ -198,6 +198,7 @@ namespace MeetingConsoleApp.Data
 
             if (allPeople.Count == 0)
             {
+                Console.WriteLine("Person with this name or id was not found. Creating new person...");
                 person = new Person { Id = 1, Name = name };
                 return person;
             }
