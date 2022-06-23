@@ -13,6 +13,17 @@ namespace MeetingConsoleApp.Data
     {
         readonly string fileName = "MeetingsData.json";
 
+        public void CreateEmptyFile()
+        {
+            File.Create(fileName).Dispose();
+        }
+        public bool FileExists()
+        {
+            if (File.Exists(fileName))
+                return true;
+            else
+                return false;
+        }
         public List<Meeting> GetMeetings()
         {
             List<Meeting> meetings = new();

@@ -3,10 +3,18 @@ using MeetingConsoleApp.Data;
 using MeetingConsoleApp.Models;
 using System.Text.Json;
 
+
 string cmd;
 int userId = 0;
 LineReader lineReader = new();
-CmdHelper cmdHelper = new(new DataAccess(), lineReader);
+DataAccess dataAccess = new();
+CmdHelper cmdHelper = new(dataAccess, lineReader);
+
+if (!dataAccess.FileExists())
+{
+    dataAccess.CreateEmptyFile();
+}
+
 bool programActive = true;
 while (programActive)
 {
@@ -41,5 +49,4 @@ while (programActive)
             break;
     }
 }
-Console.ReadLine();
 
